@@ -1,0 +1,16 @@
+
+table.dannie{
+    text-align: center;
+    border: 1px solid grey;
+    border-collapse: collapse;
+    margin: auto;
+
+}
+td.dan {
+    border: 1px solid grey;
+}
+td.dan1 {
+    border: 1px solid grey;
+    text-align: center;
+    background: #b1b9c1;
+}
