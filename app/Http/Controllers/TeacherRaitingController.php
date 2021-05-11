@@ -50,18 +50,24 @@ class TeacherRaitingController extends Controller
 
             } else {
                 $results_group = Group::where('id', $request->groups)->get();
-                $users = User::where('groups', $results_group[0]->group)->where('role_id', 2)->select('id')->get();
-                foreach ($users as $users) {
-                    $results = Result::where('id_user', $users->id)->where('end', 1)->get();
+
+                if(User::where('groups', $results_group[0]->group)->where('role_id', 2)->exists()){
+                    $users = User::where('groups', $results_group[0]->group)->where('role_id', 2)->select('id')->get();
+                    foreach ($users as $users) {
+                        $results = Result::where('id_user', $users->id)->where('end', 1)->get();
+                    }
                 }
-
-
             }
 
         } else {
             $results = Result::where('id_user', $request->users)->where('end', 1)->get();
         }
+    if(isset($results)){
+        $arr=(array)$results;
+        if(count($arr, COUNT_RECURSIVE)!=1){
 
+
+        echo '<br>';
         echo'<tr>';
         echo'<th width="40%" style="padding: 3px; border: 1px solid black;" align="center"> ФИО пользователя</th>';
         echo'<th width="10%" style="padding: 3px; border: 1px solid black;" align="center"> Набранные баллы</th>';
@@ -78,13 +84,17 @@ class TeacherRaitingController extends Controller
                 echo '<td width="25%" style="padding: 3px; border: 1px solid black; word-break: break-word;"align="center">' . date('d-m-Y H:i:s', strtotime($result->updated_at)) . '</td>';
                 echo '</tr>';
             }
-//        }
-//        else{
-//            echo '<tr>';
-//            echo '<td width="100%" style="padding: 3px; border: 1px solid black; word-break: break-word;" colspan="2" align="center">Отсутсвуют заполненные критерии</td>';
-//
-//            echo '</tr>';
-//        }
+        }
+        else{
+            echo '<br>';
+            echo 'Отсутсвуют заполненные критерии';
+
+        }
+        }
+        else{
+            echo '<br>';
+            echo 'Отсутсвуют заполненные критерии';
+        }
 
 
     }

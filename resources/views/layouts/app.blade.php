@@ -34,6 +34,7 @@
                     width: 100%;
                     height: 100%;
                 }
+
                 .child {
                     background: #eee;
                     border: 1px solid #ccc;
@@ -60,6 +61,31 @@
                     margin-top: 60px;
                     background: #eee;
                     border: 1px solid #ccc;
+                }
+                /*.parent1{*/
+                /*    width: 15%;*/
+                /*    height: 20%;*/
+                /*    margin-right: 24.5%;*/
+                /*    margin-left: 24.5%;*/
+                /*    !*margin-top: 120px;*!*/
+                /*    text-align:center;*/
+                /*    background: #eee;*/
+                /*    border: 1px solid #ccc;*/
+
+                /*}*/
+                .child1{
+                    background: #eee;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    float: left;
+                    width: 50%;
+                    margin-right: 25%;
+                    margin-left: 25%;
+                    margin-top: 60px;
+                    text-align:center;
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
                 }
 
                 </style>
