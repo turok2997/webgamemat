@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect('/start');
-});
+//Route::get('/', function () {
+//    return redirect('/instr');
+//});
 
 //Route::get('/dashboard', function () {
 //    return view('dashboard');
