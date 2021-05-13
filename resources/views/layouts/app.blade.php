@@ -40,9 +40,9 @@
                     border: 1px solid #ccc;
                     padding: 10px;
                     float: left;
-                    width: 20%;
+                    width: 30%;
                     margin-right: 5%;
-                    margin-left: 25%;
+                    margin-left: 15%;
                     margin-top: 60px;
                     text-align:center;
                     -webkit-box-sizing: border-box;
@@ -50,7 +50,7 @@
                     box-sizing: border-box;
                 }
                 .child:last-child {
-                    margin-right: 25%;
+                    margin-right: 15%;
                     margin-left: 5%;
                 }
                 .end_test{

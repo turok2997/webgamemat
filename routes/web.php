@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('/start');
+    return view('welcome');
 });
 
-//Route::get('/dashboard', function () {
-//    return view('dashboard');
-//})->middleware(['auth'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
@@ -38,7 +38,7 @@ Route::get('/level/{currentlevel}', [App\Http\Controllers\StartController::class
 
 Route::post('/check', [App\Http\Controllers\LevelController::class, 'level'])->middleware(['endtest'])->middleware(['teachercheck'])->middleware(['levelcheck'])->middleware(['auth'])->name('check');
 
-Route::get('/result', [App\Http\Controllers\ResultController::class, 'result'])->middleware(['auth'])->middleware(['teachercheck'])->name('result');
+//Route::get('/result', [App\Http\Controllers\ResultController::class, 'result'])->middleware(['auth'])->middleware(['teachercheck'])->name('result');
 
 Route::get('/result_view', [App\Http\Controllers\ResultController::class, 'result_view'])->middleware(['auth'])->middleware(['teachercheck'])->name('result_view');
 

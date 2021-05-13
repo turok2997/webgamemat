@@ -39,7 +39,11 @@ class LevelController extends Controller
 
       $id_level=$number_row[0]->id+1;
       $level_slug = Level::where('id', $id_level)->get();
-      if($level_slug[0]->slug=='end-lvl') return  redirect()->route('result');
+      if($level_slug[0]->slug=='end-lvl'){
+          $update_level=Result::where('id_user', Auth::user()->id)->where('end', 0)->update(['end' => 1]);
+          $update_level1=User::where('id', Auth::user()->id)->update(['currentlevel' => 'lvl-1']);
+          return redirect('result_view');
+      }
       $update_level = User::where('id', Auth::user()->id)->update(['currentlevel' => $level_slug[0]->slug]);
       $currentlevel = User::where('id', Auth::user()->id)->get();
       return  redirect()->route('level',  $currentlevel[0]->currentlevel);
